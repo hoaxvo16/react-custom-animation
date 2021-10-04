@@ -1,32 +1,46 @@
+import React from 'react';
 import './App.css';
 import { Animation } from './packages';
 
 function App() {
+   const [start, setStart] = React.useState(false);
+   const [rotate, setRotate] = React.useState(false);
    return (
-      <div className="App">
-         <div className="rotate">
+      <>
+         <button onClick={() => setStart(!start)}>
+            {start ? 'Stop fade in, fade out' : 'Start fade in, fade out'}
+         </button>
+
+         <div className="App">
+            <div className="rotate">
+               <Animation
+                  start={rotate}
+                  type="rotate"
+                  fromDeg={0}
+                  toDeg={360}
+                  behavior={{ duration: 3, repeat: 'infinite' }}
+               >
+                  <button onClick={() => setRotate(!rotate)}>
+                     {rotate ? 'Stop rotate' : 'Start rotate'}
+                  </button>
+               </Animation>
+            </div>
             <Animation
-               type="rotate"
-               fromDeg={0}
-               toDeg={360}
-               behavior={{ duration: 3, repeat: 'infinite' }}
+               start={start}
+               type="fade-in"
+               behavior={{ duration: 2, repeat: 'infinite' }}
             >
-               <button>ROTATE</button>
+               <h1>FADE IN</h1>
+            </Animation>
+            <Animation
+               start={start}
+               type="fade-out"
+               behavior={{ duration: 2, repeat: 'infinite' }}
+            >
+               <h1>FADE OUT</h1>
             </Animation>
          </div>
-         <Animation
-            type="fade-in"
-            behavior={{ duration: 2, repeat: 'infinite' }}
-         >
-            <h1>FADE IN</h1>
-         </Animation>
-         <Animation
-            type="fade-out"
-            behavior={{ duration: 2, repeat: 'infinite', delay: 3 }}
-         >
-            <h1>FADE OUT</h1>
-         </Animation>
-      </div>
+      </>
    );
 }
 
