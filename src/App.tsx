@@ -39,6 +39,17 @@ function App() {
             >
                <h1>FADE OUT</h1>
             </Animation>
+
+            <Animation
+               type="resize"
+               fromWidth={100}
+               toWidth={200}
+               fromHeight={100}
+               toHeight={200}
+               behavior={{ duration: 3, repeat: 'infinite' }}
+            >
+               <div style={{ backgroundColor: 'red' }}>Resize</div>
+            </Animation>
          </div>
       </>
    );

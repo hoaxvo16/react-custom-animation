@@ -1,4 +1,4 @@
-import { AnimationBehavior, divStyle, RotateType } from '../../utils';
+import { AnimationBehavior, RotateType } from '../../utils';
 import { generate } from 'generate-password';
 
 export function Rotate(props: Partial<AnimationBehavior & RotateType>) {
@@ -12,9 +12,9 @@ export function Rotate(props: Partial<AnimationBehavior & RotateType>) {
    const style: any = {
       animationName: `${animationName}`,
       animationDuration: `${duration}s`,
-      animationIterationCount: repeat === 'infinite' ? repeat : `${repeat}s`,
+      animationIterationCount: repeat === 'infinite' ? repeat : `${repeat}`,
       animationDelay: `${delay}s`,
-      ...divStyle,
+      ...children.props.style,
    };
    return <div style={style}>{children}</div>;
 }

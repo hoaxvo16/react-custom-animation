@@ -1,0 +1,10 @@
+@keyframes resize {
+   from {
+      width: 10px;
+      height: 10px;
+   }
+   to {
+      width: 10px;
+      height: 10px;
+   }
+}

@@ -2,10 +2,15 @@
 
 -  Build custom animation components in React using typescript
 
-#### Content
+#### Contents
 
 -  [Usage](#usage)
 -  [Start animation on action](#startonaction)
+-  Supported animation:
+   -  FadeIn
+   -  FadeOut
+   -  Rotate
+   -  Resize
 
 #### Usage <a name="usage"></a>
 

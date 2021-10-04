@@ -1,21 +1,32 @@
 import { Rotate } from './Rotate';
-import { AnimationType, RotateType } from '../utils';
+import { AnimationType, ResizeType, RotateType } from '../utils';
 import { FadeIn } from './FadeIn';
 import { FadeOut } from './FadeOut';
+import { Resize } from './Resize';
 
-type PropType = Partial<AnimationType & RotateType>;
+type PropType = Partial<AnimationType & RotateType & ResizeType>;
 
 const UNDEFINED: any = {};
 
 const BEHAVIOR: any = {
-   repeatTime: 'none',
+   repeatTime: 1,
    delayTime: 0,
    durationTime: 0,
    isStart: true,
 };
 
 export function Animation(props: PropType): JSX.Element {
-   const { type, fromDeg, toDeg, children, start } = props;
+   const {
+      type,
+      fromDeg,
+      toDeg,
+      children,
+      start,
+      fromWidth,
+      fromHeight,
+      toWidth,
+      toHeight,
+   } = props;
    const { repeat, delay, duration } = props.behavior
       ? props.behavior
       : UNDEFINED;
@@ -72,6 +83,20 @@ export function Animation(props: PropType): JSX.Element {
                >
                   {children}
                </FadeOut>
+            );
+         case 'resize':
+            return (
+               <Resize
+                  fromWidth={fromWidth}
+                  fromHeight={fromHeight}
+                  toWidth={toWidth}
+                  toHeight={toHeight}
+                  duration={durationTime}
+                  delay={delayTime}
+                  repeat={repeatTime}
+               >
+                  {children}
+               </Resize>
             );
          default:
             return <>{children}</>;

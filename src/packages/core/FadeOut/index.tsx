@@ -1,4 +1,4 @@
-import { AnimationBehavior, divStyle } from '../../utils';
+import { AnimationBehavior } from '../../utils';
 import { generate } from 'generate-password';
 
 export function FadeOut(props: Partial<AnimationBehavior & { children: any }>) {
@@ -21,7 +21,7 @@ export function FadeOut(props: Partial<AnimationBehavior & { children: any }>) {
       animationDuration: `${duration}s`,
       animationIterationCount: repeat === 'infinite' ? repeat : `${repeat}s`,
       animationDelay: `${delay}s`,
-      ...divStyle,
+      ...children.props.style,
    };
    return <div style={style}>{children}</div>;
 }

@@ -1,18 +1,30 @@
-import { AnimationBehavior } from '../../utils';
+import { AnimationBehavior, divStyle, ResizeType } from '../../utils';
 import { generate } from 'generate-password';
 
-export function FadeIn(props: Partial<AnimationBehavior & { children: any }>) {
-   const { delay, repeat, duration, children } = props;
+export function Resize(props: Partial<AnimationBehavior & ResizeType>) {
+   const {
+      delay,
+      repeat,
+      duration,
+      children,
+      fromWidth,
+      toWidth,
+      fromHeight,
+      toHeight,
+   } = props;
    const animationName = generate({
       length: 10,
    });
+
    const styleSheet = window.document.styleSheets[0];
    const keyFrame = `@keyframes ${animationName}{
-        from{
-            opacity: 0;
+        from {
+            width: ${fromWidth}px;
+            height: ${fromHeight}px;
         }
-        to{
-            opacity: 1;
+        to {
+            width: ${toWidth}px;
+            height: ${toHeight}px;
         }
     }`;
    styleSheet.insertRule(keyFrame, styleSheet.cssRules.length);
@@ -23,5 +35,6 @@ export function FadeIn(props: Partial<AnimationBehavior & { children: any }>) {
       animationDelay: `${delay}s`,
       ...children.props.style,
    };
+
    return <div style={style}>{children}</div>;
 }
