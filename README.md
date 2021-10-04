@@ -2,7 +2,12 @@
 
 -  Build custom animation components in React using typescript
 
-#### Usage
+#### Content
+
+-  [Usage](#usage)
+-  [Start animation on action](#startonaction)
+
+#### Usage <a name="usage"></a>
 
 ```jsx
 import { Animation } from './packages';
@@ -41,7 +46,7 @@ function App() {
 
 ![](https://media3.giphy.com/media/GEcM0crskEEbp1NTo6/giphy.gif?cid=790b7611497aaae8b381c57c6de4c49154f1f7eaf7477ee4&rid=giphy.gif&ct=g)
 
-### Start animation on action
+### Start animation on action <a name="startonaction"></a>
 
 -  Adding **_useState_** or **_state_** (class Component) and **_start_** props
 
