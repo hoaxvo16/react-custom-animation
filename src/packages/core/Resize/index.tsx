@@ -1,4 +1,4 @@
-import { AnimationBehavior, divStyle, ResizeType } from '../../utils';
+import { AnimationBehavior, ResizeType } from '../../utils';
 import { generate } from 'generate-password';
 
 export function Resize(props: Partial<AnimationBehavior & ResizeType>) {
