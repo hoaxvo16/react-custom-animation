@@ -1,0 +1,9 @@
+{
+  "name": "react-custom-animation",
+  "version": "1.0.1",
+  "dependencies": {
+    "@types/react": "^17.0.39",
+    "generate-password": "^1.7.0",
+    "react": "^17.0.2"
+  }
+}
