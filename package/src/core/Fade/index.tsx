@@ -1,7 +1,8 @@
 import { AnimationBehavior } from '../types';
 import { animationCreator } from '../AnimationCreator/creator';
+import React from 'react';
 
-export function FadeIn(
+export function Fade(
    props: Partial<
       AnimationBehavior & { children: any } & { opacityRange: [number, number] }
    >
@@ -9,7 +10,7 @@ export function FadeIn(
    const {
       delay = 0,
       repeat = 'infinite',
-      duration = 300,
+      duration = 3000,
       children,
       opacityRange = [0, 1],
    } = props;
@@ -21,11 +22,12 @@ export function FadeIn(
 
    const style: any = {
       animationName: `${animationName}`,
-      animationDuration: `${duration}s`,
-      animationIterationCount: repeat === 'infinite' ? repeat : `${repeat}s`,
-      animationDelay: `${delay}s`,
+      animationDuration: `${duration}ms`,
+      animationIterationCount: repeat === 'infinite' ? repeat : `${repeat}ms`,
+      animationDelay: `${delay}ms`,
       ...children.props.style,
    };
+   console.log(children);
 
    return <div style={style}>{children}</div>;
 }
