@@ -2,9 +2,11 @@ import React from 'react';
 import { animationCreator } from '../AnimationCreator/creator';
 import { AnimationBehavior } from '../types';
 
-export function Rotate(
+export function Resize(
    props: Partial<
-      AnimationBehavior & { children: any } & { degRange: [number, number] }
+      AnimationBehavior & { children: any } & {
+         widthRange?: [number, number];
+      } & { heightRange?: [number, number] }
    >
 ) {
    const {
@@ -12,12 +14,20 @@ export function Rotate(
       repeat = 'infinite',
       duration = 3000,
       children,
-      degRange = [0, 180],
+      widthRange,
+      heightRange,
    } = props;
 
    const animationName = animationCreator.createAnimation(
       'rotate',
-      `from{transform: rotate(${degRange[0]}deg);}to{transform: rotate(${degRange[1]}deg);}`
+      `from{ 
+        width:
+        ${widthRange && widthRange[0]}px;
+         height:${heightRange && heightRange[0]}px;}
+       to{
+        width:
+        ${widthRange && widthRange[1]}px;
+        height:${heightRange && heightRange[1]}px;}`
    );
 
    const style: any = {
